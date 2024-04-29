@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
         if (currentTarget != null)
         {
             float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
-            Debug.Log("Distance to target: " + distanceToTarget);
+            //Debug.Log("Distance to target: " + distanceToTarget);
             // If the object is close enough to the target, stop its movement
             if (distanceToTarget <= stoppingDistance)
             {
@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
     // Method to activate A* pathfinding
    void SetTarget(Transform target)
     {
-        Debug.Log("Button clicked! Setting target to: " + target.name);
+       // Debug.Log("Button clicked! Setting target to: " + target.name);
         currentTarget = target;
 
         // Enable the AIDestinationSetter component
