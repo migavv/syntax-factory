@@ -11,14 +11,14 @@ public static void AddDetectable(Detectable detectable)
 {
     if (!detectableObjects.Contains(detectable))
     {
-        detectableObjects.Add(detectable);   
+        detectableObjects.Add(detectable);
     }
 }
 public static void RemoveDetectable(Detectable detectable)
 {
     if (detectableObjects.Contains(detectable))
     {
-        detectableObjects.Remove(detectable);   
+        detectableObjects.Remove(detectable);
     }
 }
 

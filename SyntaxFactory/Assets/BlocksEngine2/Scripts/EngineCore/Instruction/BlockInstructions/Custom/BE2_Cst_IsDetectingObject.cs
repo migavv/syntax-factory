@@ -29,9 +29,12 @@ public class BE2_Cst_IsDetectingObject : BE2_InstructionBase, I_BE2_Instruction
         foreach (Detectable detectable in Sensor.detectedObjects){
             if (Section0Inputs[0].StringValue == detectable.type)
             {
+
                 return "true";
+              
             }
         }
+       
         return "false";
 
     }
