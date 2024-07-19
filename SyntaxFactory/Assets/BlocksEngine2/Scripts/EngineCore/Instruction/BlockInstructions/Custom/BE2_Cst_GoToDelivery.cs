@@ -5,6 +5,7 @@ using UnityEngine;
 // --- most used BE2 namespaces for instruction scripts 
 using MG_BlocksEngine2.Block.Instruction;
 using MG_BlocksEngine2.Block;
+using System.Threading;
 
 // --- additional BE2 namespaces used for specific cases as accessing BE2 variables or the event manager
 // using MG_BlocksEngine2.Core;
@@ -39,6 +40,7 @@ public class BE2_Cst_GoToDelivery : BE2_InstructionBase, I_BE2_Instruction
         {
             Debug.Log("Delivery reached");
             Agent.navMeshAgent.isStopped = true;
+            Thread.Sleep(1000);
             ExecuteNextInstruction();
         }
     }
