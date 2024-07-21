@@ -33,13 +33,12 @@ public class BE2_Cst_GoToPickup : BE2_InstructionBase, I_BE2_Instruction
     
 
     // --- Method used to implement Function Blocks (will only be called by types: simple, condition, loop, trigger)
-    public new IEnumerator Function()
+    public new void Function()
     {
         targetObject = GameObject.Find("Destino2").transform;
         //First
         Agent.navMeshAgent.destination = targetObject.position;
         Agent.navMeshAgent.isStopped = false;
-        yield return new WaitWhile(() => Agent.navMeshAgent.pathPending);
         float remainingDistance = Agent.navMeshAgent.remainingDistance;
         Debug.Log("Remaining distance: " + remainingDistance + " / " + Agent.navMeshAgent.stoppingDistance);
         Debug.Log("Distance reached: " + remainingDistance + " / " + Agent.navMeshAgent.stoppingDistance);
