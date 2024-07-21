@@ -6,6 +6,9 @@ using UnityEngine;
 using MG_BlocksEngine2.Block.Instruction;
 using MG_BlocksEngine2.Block;
 using System.Threading;
+using UnityEngineInternal;
+using UnityEngine.XR;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 // --- additional BE2 namespaces used for specific cases as accessing BE2 variables or the event manager
 // using MG_BlocksEngine2.Core;
@@ -13,7 +16,8 @@ using System.Threading;
 
 public class BE2_Cst_GoToDelivery : BE2_InstructionBase, I_BE2_Instruction
 {
-     Agent _agent;
+    bool done = false;
+    Agent _agent;
     Agent Agent{
         get{
              if (!_agent) 
@@ -31,16 +35,20 @@ public class BE2_Cst_GoToDelivery : BE2_InstructionBase, I_BE2_Instruction
     {
         targetObject = GameObject.Find("Destino").transform;
         //First
-       Agent.navMeshAgent.destination = targetObject.position;
-       Agent.navMeshAgent.isStopped = false;
-       float remainingDistance = Agent.navMeshAgent.remainingDistance;
+        Agent.navMeshAgent.destination = targetObject.position;
+        Agent.navMeshAgent.isStopped = false;
+        float remainingDistance = Agent.navMeshAgent.remainingDistance;
+        Debug.Log("Remaining distance: " + remainingDistance + " / " + Agent.navMeshAgent.stoppingDistance);
+        Debug.Log("Location reached: " + (remainingDistance <= Agent.navMeshAgent.stoppingDistance));
         bool isDestinationReached = !Agent.navMeshAgent.pathPending && remainingDistance <= Agent.navMeshAgent.stoppingDistance;
-          Debug.Log("Going to" + targetObject);
-         if (isDestinationReached)
+        Debug.Log("Going to" + targetObject);
+        if (isDestinationReached)
         {
-            Debug.Log("Delivery reached");
+            done = true;
             Agent.navMeshAgent.isStopped = true;
-            Thread.Sleep(1000);
+        }
+        if (done)
+        {
             ExecuteNextInstruction();
         }
     }
@@ -49,5 +57,17 @@ public class BE2_Cst_GoToDelivery : BE2_InstructionBase, I_BE2_Instruction
     protected override void OnButtonStop()
     {
         Agent.navMeshAgent.isStopped = true;
+    }
+
+    public new void Reset()
+    {
+        done = false;
+        Agent.navMeshAgent.isStopped = false;
+    }
+
+    public override void OnStackActive()
+    {
+        done = false;
+        Agent.navMeshAgent.isStopped = false;
     }
 }

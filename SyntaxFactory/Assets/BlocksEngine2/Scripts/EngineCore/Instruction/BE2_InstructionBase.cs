@@ -239,7 +239,7 @@ namespace MG_BlocksEngine2.Block.Instruction
 
         // ### Instruction ###
         public I_BE2_InstructionBase InstructionBase { get; set; }
-        public bool ExecuteInUpdate { get; }
+        public bool ExecuteInUpdate { get; set; }
 
         public string Operation() { return ""; }
         public void Function() { }
