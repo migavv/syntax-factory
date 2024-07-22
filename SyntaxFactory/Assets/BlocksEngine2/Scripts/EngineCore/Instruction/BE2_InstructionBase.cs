@@ -5,6 +5,7 @@ using UnityEngine;
 using MG_BlocksEngine2.Core;
 using MG_BlocksEngine2.Environment;
 using MG_BlocksEngine2.Utils;
+using System;
 
 namespace MG_BlocksEngine2.Block.Instruction
 {
@@ -200,6 +201,7 @@ namespace MG_BlocksEngine2.Block.Instruction
                     {
                         // v2.11.2 - bugfix: blocks stack not starting from the beginning when execution was finished and new blocks are added
                         BlocksStack.Pointer = nextInstruction.InstructionBase.Block.Type == BlockTypeEnum.trigger ? 0 : _lastLocation;
+                        Debug.Log(BlocksStack.Pointer);
                     }
                 }
                 else
@@ -239,7 +241,7 @@ namespace MG_BlocksEngine2.Block.Instruction
 
         // ### Instruction ###
         public I_BE2_InstructionBase InstructionBase { get; set; }
-        public bool ExecuteInUpdate { get; }
+        public bool ExecuteInUpdate { get; set; }
 
         public string Operation() { return ""; }
         public void Function() { }
