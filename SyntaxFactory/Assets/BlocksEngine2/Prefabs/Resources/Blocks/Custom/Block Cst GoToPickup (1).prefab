@@ -533,4 +533,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce32868bd35dc1741bfbbd5f8801e6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   targetObject: {fileID: 0}
