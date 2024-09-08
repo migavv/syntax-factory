@@ -8,6 +8,7 @@ public class Agent : MonoBehaviour
    public NavMeshAgent navMeshAgent;
    public Sensor sensor;
 
+
    private void Awake() {
     
     navMeshAgent = GetComponent<NavMeshAgent>();
