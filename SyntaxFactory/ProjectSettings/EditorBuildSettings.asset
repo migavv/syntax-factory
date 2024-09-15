@@ -12,6 +12,18 @@ EditorBuildSettings:
     path: Assets/BlocksEngine2/Scenes/Level_1.unity
     guid: fa8cb6074be7b69488b3fe5031916854
   - enabled: 1
-    path: Assets/BlocksEngine2/Scenes/Level_2.unity
+    path: Assets/BlocksEngine2/Scenes/BASE.unity
     guid: 3ebe6a75daccc384da3c09ac28e50c58
+  - enabled: 1
+    path: Assets/BlocksEngine2/Scenes/Level_3.unity
+    guid: 7df42f19c86ed934eb809a89457e6673
+  - enabled: 1
+    path: Assets/BlocksEngine2/Scenes/Level_2.unity
+    guid: 2a8e54dddacb0c94f84ba68e8aad4cbc
+  - enabled: 1
+    path: Assets/BlocksEngine2/Scenes/Level_4.unity
+    guid: a71fc09bbf1253348aa20fddaa499f4e
+  - enabled: 1
+    path: Assets/BlocksEngine2/Scenes/Level_5.unity
+    guid: 292c464dce9f9d74c9ebb7efeab4c16f
   m_configObjects: {}
