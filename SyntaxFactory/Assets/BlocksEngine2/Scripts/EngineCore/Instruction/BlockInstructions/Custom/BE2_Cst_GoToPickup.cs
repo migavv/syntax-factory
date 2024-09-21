@@ -47,19 +47,19 @@ public class BE2_Cst_GoToPickup : BE2_InstructionBase, I_BE2_Instruction
             animator.SetFloat("Speed",1.0f);
             if (pos.x < des.x)
             {
-                pos.x = Math.Min(pos.x + 0.005f, des.x);
+                pos.x = Math.Min(pos.x + 0.01f, des.x);
             }
             else if (pos.x > des.x)
             {
-                pos.x = Math.Max(pos.x - 0.005f, des.x);
+                pos.x = Math.Max(pos.x - 0.01f, des.x);
             }
             if (pos.y < des.y)
             {
-                pos.y = Math.Min(pos.y + 0.005f, des.y);
+                pos.y = Math.Min(pos.y + 0.01f, des.y);
             }
             else if (pos.y > des.y)
             {
-                pos.y = Math.Max(pos.y - 0.005f, des.y);
+                pos.y = Math.Max(pos.y - 0.01f, des.y);
             }
 
              GameObject.Find("Robot").transform.position = new Vector2(pos.x, pos.y);

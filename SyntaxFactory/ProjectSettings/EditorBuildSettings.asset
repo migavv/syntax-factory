@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BlocksEngine2/Scenes/Level_5.unity
     guid: 292c464dce9f9d74c9ebb7efeab4c16f
+  - enabled: 1
+    path: Assets/BlocksEngine2/Scenes/Level_6.unity
+    guid: 5e34897000ad1f146887becd9b33a231
+  - enabled: 1
+    path: Assets/BlocksEngine2/Scenes/Level_7.unity
+    guid: 862ec2440e9b4fc4086e35d6bfcffaa7
   m_configObjects: {}

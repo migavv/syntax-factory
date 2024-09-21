@@ -30,7 +30,7 @@ public class PickupController : MonoBehaviour
     void Pickup()
     {
         // Example pickup action
-        Debug.Log("Item picked up!");
+        //Debug.Log("Item picked up!");
         
         // Parent the pickup item to the tracking object
         pickupItem.parent = robot;
@@ -56,7 +56,7 @@ public class PickupController : MonoBehaviour
       public void Drop()
     {
         // Example drop action
-        Debug.Log("Item dropped!");
+       // Debug.Log("Item dropped!");
 
         // Unparent the pickup item from the tracking object
         pickupItem.parent = null;
