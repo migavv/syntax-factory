@@ -17,7 +17,7 @@ public class ItemManager : MonoBehaviour
     public string nextSceneName; // The name of the next scene to load when the level is completed
     public bool isCounting = false; // To track if counting is in progress
     private bool levelCompleted = false; // To keep track of whether the level is completed
-    public bool isTrash;
+    public bool isTrash =false;
     public Sprite trashSprite; // Assign this in the Inspector to the trash sprite
     public Sprite regularSprite; // Assign this to the regular sprite
     private SpriteRenderer spriteRenderer;
@@ -30,17 +30,12 @@ public class ItemManager : MonoBehaviour
         generalManager = FindObjectOfType<GeneralManager>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(PlayAnimationWithDelay(0.7f));
-        isTrash = Random.value > 0.7f; // 70% chance for true or false
-
-           if (isTrash)
-        {
-            spriteRenderer.sprite = trashSprite;
+        if (currentLevel >6){
+            isTrash = Random.value > 0.7f; // 70% chance for true or false
         }
-        else
-        {
-            spriteRenderer.sprite = regularSprite;
-        }
+        
 
 
     }
@@ -83,7 +78,9 @@ public class ItemManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         // Play the animation
+  
         animator.SetBool("Spawned", false);
+
         if (isTrash){
             animator.SetBool("isTrash",true);
         }else{
