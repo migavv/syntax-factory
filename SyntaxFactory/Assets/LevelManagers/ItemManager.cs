@@ -3,7 +3,7 @@ using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement; // For loading new scenes
 
-public class Level_6Manager : MonoBehaviour
+public class ItemManager : MonoBehaviour
 {
     public GeneralManager generalManager;
 
@@ -16,9 +16,11 @@ public class Level_6Manager : MonoBehaviour
     public PickupController pickupController;
     public string nextSceneName; // The name of the next scene to load when the level is completed
     public bool isCounting = false; // To track if counting is in progress
-
-
     private bool levelCompleted = false; // To keep track of whether the level is completed
+    public bool isTrash;
+    public Sprite trashSprite; // Assign this in the Inspector to the trash sprite
+    public Sprite regularSprite; // Assign this to the regular sprite
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
@@ -27,7 +29,19 @@ public class Level_6Manager : MonoBehaviour
         spawnLocation = GameObject.Find("Destino2").transform;
         generalManager = FindObjectOfType<GeneralManager>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
         StartCoroutine(PlayAnimationWithDelay(0.7f));
+        isTrash = Random.value > 0.7f; // 70% chance for true or false
+
+           if (isTrash)
+        {
+            spriteRenderer.sprite = trashSprite;
+        }
+        else
+        {
+            spriteRenderer.sprite = regularSprite;
+        }
+
 
     }
 
@@ -69,7 +83,13 @@ public class Level_6Manager : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         // Play the animation
-         animator.SetBool("Spawned", false);
+        animator.SetBool("Spawned", false);
+        if (isTrash){
+            animator.SetBool("isTrash",true);
+        }else{
+            animator.SetBool("isTrash", false);
+        }
+        
     }
     private IEnumerator CountItemAfterDelay()
 {
