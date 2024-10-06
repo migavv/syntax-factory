@@ -68,7 +68,7 @@ public class ItemManager : MonoBehaviour
 
         // Spawn a new item at the specified spawn location
         GameObject newItem = Instantiate(itemPrefab, spawnLocation.position, spawnLocation.rotation);
-        pickupController.pickupItem = newItem.transform;
+        pickupController.pickupItem = newItem;
         Destroy(gameObject);
     }
 

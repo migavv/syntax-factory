@@ -5,9 +5,11 @@ using UnityEngine;
 public class PickupController : MonoBehaviour
 {
     public Transform robot; // Reference to the object that's tracking
-    public Transform pickupItem; // Reference to the pickup item
+    public GameObject pickupItem; // Reference to the pickup item
     public float pickupDistance = 1.0f; // Distance threshold for pickup
     public bool canPickupOrDrop = false; // Variable to control pickup/drop functionality
+
+    public bool pickedUp = false;
 
     private bool isPickedUp = false;
 
@@ -15,7 +17,7 @@ public class PickupController : MonoBehaviour
     {
         if (!isPickedUp && robot != null && pickupItem != null)
         {
-            float distance = Vector3.Distance(robot.position, pickupItem.position);
+            float distance = Vector3.Distance(robot.position, pickupItem.transform.position);
 
             // Check if the tracking object is close enough to the pickup item for pickup
             if (canPickupOrDrop && distance <= pickupDistance)
@@ -33,9 +35,9 @@ public class PickupController : MonoBehaviour
         //Debug.Log("Item picked up!");
         
         // Parent the pickup item to the tracking object
-        pickupItem.parent = robot;
+        pickupItem.transform.parent = robot;
 
-        pickupItem.localPosition = Vector3.zero; //new
+        pickupItem.transform.localPosition = Vector3.zero; //new
         SpriteRenderer itemRenderer = pickupItem.GetComponent<SpriteRenderer>();
         SpriteRenderer robotRenderer = robot.GetComponent<SpriteRenderer>();
             if (itemRenderer != null && robotRenderer != null)
@@ -59,7 +61,7 @@ public class PickupController : MonoBehaviour
        // Debug.Log("Item dropped!");
 
         // Unparent the pickup item from the tracking object
-        pickupItem.parent = null;
+        pickupItem.transform.parent = null;
         
         // Enable the pickup item collider to allow further interactions
         Collider pickupCollider = pickupItem.GetComponent<Collider>();
