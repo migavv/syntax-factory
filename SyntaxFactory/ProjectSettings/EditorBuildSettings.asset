@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -22,13 +22,13 @@ EditorBuildSettings:
     guid: 2a8e54dddacb0c94f84ba68e8aad4cbc
   - enabled: 1
     path: Assets/BlocksEngine2/Scenes/Level_4.unity
-    guid: a71fc09bbf1253348aa20fddaa499f4e
+    guid: 88983afb3b01a274ebaa944ba8e66937
   - enabled: 1
     path: Assets/BlocksEngine2/Scenes/Level_5.unity
     guid: 292c464dce9f9d74c9ebb7efeab4c16f
   - enabled: 1
     path: Assets/BlocksEngine2/Scenes/Level_6.unity
-    guid: 5e34897000ad1f146887becd9b33a231
+    guid: 1363ff277d2d251439132a3835833200
   - enabled: 1
     path: Assets/BlocksEngine2/Scenes/Level_7.unity
     guid: 862ec2440e9b4fc4086e35d6bfcffaa7

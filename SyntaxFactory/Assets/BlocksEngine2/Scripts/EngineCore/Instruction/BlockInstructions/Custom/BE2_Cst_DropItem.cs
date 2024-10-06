@@ -22,6 +22,7 @@ public class BE2_Cst_DropItem : BE2_InstructionBase, I_BE2_Instruction
             // Initially allow picking up items
             Debug.Log("Se cambioooo a false");
             pickupController.canPickupOrDrop = false;
+            pickupController.pickedUp = false;
             pickupController.Drop();
         }
         ExecuteNextInstruction();
