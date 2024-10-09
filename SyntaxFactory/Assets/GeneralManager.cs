@@ -7,13 +7,14 @@ public class GeneralManager : MonoBehaviour
 {
 
     public int itemCount = 0;
+    public int winCondition = 3;
     public GameObject winPanel; // Reference to a UI panel that shows when the level is won
     public string nextSceneName; // The name of the next scene to load when the level is completed
 
      public void IncrementItemCount()
     {
         itemCount++;
-        if(itemCount >= 3){
+        if(itemCount >= winCondition){
             CompleteLevel();
         }
         

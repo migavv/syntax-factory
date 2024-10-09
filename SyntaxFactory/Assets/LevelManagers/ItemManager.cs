@@ -8,6 +8,7 @@ public class ItemManager : MonoBehaviour
     public GeneralManager generalManager;
 
     public GameObject destination; // Reference to the destination GameObject
+    public GameObject trashDestination; // Reference to the destination GameObject
     public GameObject itemPrefab; // Prefab of the item to spawn
     public Transform spawnLocation; // Where the new items should spawn
     private Animator animator;
@@ -21,19 +22,24 @@ public class ItemManager : MonoBehaviour
     public Sprite trashSprite; // Assign this in the Inspector to the trash sprite
     public Sprite regularSprite; // Assign this to the regular sprite
     private SpriteRenderer spriteRenderer;
+    public int currentLevel;
+
 
     void Start()
     {
         pickupController = FindObjectOfType<PickupController>();
         destination =  GameObject.Find("Destino");
         spawnLocation = GameObject.Find("Destino2").transform;
+        trashDestination =  GameObject.Find("TrashDestination");
         generalManager = FindObjectOfType<GeneralManager>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
-        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(PlayAnimationWithDelay(0.7f));
-        if (currentLevel >6){
-            isTrash = Random.value > 0.7f; // 70% chance for true or false
+        if (currentLevel == 7){
+            isTrash = true;  // 30% chance for true or false
+        }else if (currentLevel > 7){
+           isTrash = Random.value > 0.7f;
         }
         
 
@@ -44,6 +50,26 @@ public class ItemManager : MonoBehaviour
     {
         
         // Check if the player has entered the destination's trigger zone
+        if (other.gameObject == destination && isTrash)
+        {
+        // Reload the current scene if it's trash
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        return; // Exit to avoid executing the rest of the method
+        }
+
+          if (currentLevel == 7 && other.gameObject == trashDestination && isTrash)
+        {
+            if (!isCounting) // Only count if not already counting
+            {
+             StartCoroutine(CountItemAfterDelay());
+            }
+            StartCoroutine(SpawnNewItemAfterDelay());
+        }
+           if (other.gameObject == trashDestination && isTrash)
+        {
+  
+            StartCoroutine(SpawnNewItemAfterDelay());
+        }
         
         if (!pickupController.canPickupOrDrop && other.gameObject == destination && !levelCompleted)
         {
