@@ -4545,7 +4545,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1623698936, guid: 970f0978e65eb7743a4d1a59ec13c58f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -71496,8 +71496,8 @@ Transform:
   - {fileID: 130101164}
   - {fileID: 487056704}
   - {fileID: 1959386356}
-  - {fileID: 1178276464}
   - {fileID: 1268042095}
+  - {fileID: 1178276464}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1339439752
@@ -75637,8 +75637,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1615066717}
   m_HandleRect: {fileID: 1615066716}
   m_Direction: 2
-  m_Value: 1.0000004
-  m_Size: 0.80261445
+  m_Value: 1.0000005
+  m_Size: 0.84546125
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -114285,7 +114285,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5892251047435960944}
   m_HandleRect: {fileID: 5892251047435960945}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
