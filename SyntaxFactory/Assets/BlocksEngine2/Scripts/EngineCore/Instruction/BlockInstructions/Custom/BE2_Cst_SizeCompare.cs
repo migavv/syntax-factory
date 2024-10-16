@@ -42,8 +42,8 @@ public class BE2_Cst_SizeCompare : BE2_InstructionBase, I_BE2_Instruction
         int item1 = int.Parse(Section0Inputs[0].StringValue);
         int item2 = int.Parse(Section0Inputs[1].StringValue);
 
-        int size1 = bpu.itemArray[item1].GetComponent<ItemArrayProps>().size;
-        int size2 = bpu.itemArray[item2].GetComponent<ItemArrayProps>().size;
+        int size1 = bpu.itemArray[item1].GetComponent<ArrayProps>().item.GetComponent<ItemArrayProps>().size;
+        int size2 = bpu.itemArray[item2].GetComponent<ArrayProps>().item.GetComponent<ItemArrayProps>().size;
         if(size1 > size2) return "true";
         else return "false";
     }
