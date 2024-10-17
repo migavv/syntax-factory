@@ -39,7 +39,7 @@ public class ItemManager : MonoBehaviour
         if (currentLevel == 7){
             isTrash = true;  // 30% chance for true or false
         }else if (currentLevel > 7){
-           isTrash = Random.value > 0.7f;
+           isTrash = Random.value > 0.5f;
         }
     }
 
