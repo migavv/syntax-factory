@@ -62,7 +62,7 @@ public class ItemManager : MonoBehaviour
             }
             StartCoroutine(SpawnNewItemAfterDelay());
         }
-           if (other.gameObject == trashDestination && isTrash)
+           if (currentLevel != 7 && other.gameObject == trashDestination && isTrash)
         {
   
             StartCoroutine(SpawnNewItemAfterDelay());

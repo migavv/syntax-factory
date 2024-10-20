@@ -53,13 +53,6 @@ public class Level_3Manager : MonoBehaviour
     void CompleteLevel()
     {
       
-
-        // Show the win UI panel
-        if (winPanel != null)
-        {
-            winPanel.SetActive(true);
-        }
-
         // Optionally, load the next scene after a delay
         StartCoroutine(LoadNextSceneAfterDelay(2f)); // Delay of 2 seconds
     }
@@ -67,6 +60,11 @@ public class Level_3Manager : MonoBehaviour
     private IEnumerator LoadNextSceneAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(nextSceneName);
+        
+        // Show the win UI panel
+        if (winPanel != null)
+        {
+            winPanel.SetActive(true);
+        }
     }
 }

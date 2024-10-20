@@ -44,10 +44,7 @@ public class Level_5Manager : MonoBehaviour
       
 
         // Show the win UI panel
-        if (winPanel != null)
-        {
-            winPanel.SetActive(true);
-        }
+
 
         // Optionally, load the next scene after a delay
         StartCoroutine(LoadNextSceneAfterDelay(2f)); // Delay of 2 seconds
@@ -56,6 +53,9 @@ public class Level_5Manager : MonoBehaviour
     private IEnumerator LoadNextSceneAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(nextSceneName);
+        if (winPanel != null)
+        {
+            winPanel.SetActive(true);
+        }
     }
 }

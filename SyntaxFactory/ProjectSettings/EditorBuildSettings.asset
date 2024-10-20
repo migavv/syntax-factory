@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BlocksEngine2/Scenes/Level_9.unity
     guid: b6a8aa5a86090054da473578793e370d
+  - enabled: 1
+    path: Assets/BlocksEngine2/Scenes/MainMenu.unity
+    guid: 5678176192226ef4e9d428f9ac1cebfa
+  - enabled: 1
+    path: Assets/BlocksEngine2/Scenes/LevelSelector.unity
+    guid: 6db7da747c9589142b25a6f4e5bc204d
   m_configObjects: {}
