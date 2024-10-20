@@ -35,7 +35,7 @@ public class BE2_Cst_GoToDelivery : BE2_InstructionBase, I_BE2_Instruction
     // --- Method used to implement Function Blocks (will only be called by types: simple, condition, loop, trigger)
     public new void Function()
     {
-         animator = GameObject.Find("Robot").GetComponent<Animator>();
+        animator = GameObject.Find("Robot").GetComponent<Animator>();
         //First
         Vector2 pos = GameObject.Find("Robot").transform.position;
         Vector2 des = targetObject.transform.position;
@@ -43,7 +43,7 @@ public class BE2_Cst_GoToDelivery : BE2_InstructionBase, I_BE2_Instruction
         //Debug.Log("Robot: " + pos.x + " " + pos.y);
         if (!done)
         {
-             animator.SetFloat("Speed",1.0f);
+            animator.SetFloat("Speed",1.0f);
             if (pos.x < des.x)
             {
                 pos.x = Math.Min(pos.x + 0.01f, des.x);
