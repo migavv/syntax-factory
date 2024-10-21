@@ -38,7 +38,7 @@ public class ItemManager : MonoBehaviour
         StartCoroutine(PlayAnimationWithDelay(0.7f));
         if (currentLevel == 7){
             isTrash = true;  // 30% chance for true or false
-        }else if (currentLevel > 7){
+        }else if (currentLevel > 7 && currentLevel < 10){
            isTrash = Random.value > 0.5f;
         }
     }
@@ -62,6 +62,7 @@ public class ItemManager : MonoBehaviour
             }
             StartCoroutine(SpawnNewItemAfterDelay());
         }
+
            if (currentLevel != 7 && other.gameObject == trashDestination && isTrash)
         {
   
@@ -70,12 +71,28 @@ public class ItemManager : MonoBehaviour
         
         if (!pickupController.canPickupOrDrop && other.gameObject == destination && !levelCompleted)
         {
-            if (!isCounting) // Only count if not already counting
+            if(!isCounting && currentLevel == 11){
+                if(generalManager.itemCount < 3)
+                {
+                 StartCoroutine(CountItemAfterDelay());
+                }
+                
+            }
+            else if (!isCounting) // Only count if not already counting
             {
              StartCoroutine(CountItemAfterDelay());
             }
             StartCoroutine(SpawnNewItemAfterDelay());
 
+        }
+
+        if (currentLevel == 11 && other.gameObject == trashDestination && !isTrash)
+        {
+            if (!isCounting && generalManager.itemCount >= 3) // Only count if not already counting
+            {
+             StartCoroutine(CountItemAfterDelay());
+            }
+            StartCoroutine(SpawnNewItemAfterDelay());
         }
 
  
@@ -115,6 +132,7 @@ public class ItemManager : MonoBehaviour
     {
         isCounting = true; // Set counting to true
         
+        Debug.Log("A ver");
         generalManager.IncrementItemCount();
 
         // Wait for the specified delay
