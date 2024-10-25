@@ -10,6 +10,7 @@ public class BestPickUpController : MonoBehaviour
     public GameObject pickupItem3; // Reference to the pickup item
     public GameObject pickupItem4; // Reference to the pickup item
     public GameObject pickupItem5; // Reference to the pickup item
+    public GeneralManager generalManager;
 
     public GameObject pickupItem6;
 
@@ -25,6 +26,7 @@ public class BestPickUpController : MonoBehaviour
     public bool pickedUp = false;
 
     private bool isPickedUp = false;
+     private bool ordered = false;
 
     void Start()
     {
@@ -45,6 +47,8 @@ public class BestPickUpController : MonoBehaviour
                 Pickup();
             }
         }
+
+
     }
 
     void Pickup()
@@ -81,7 +85,14 @@ public class BestPickUpController : MonoBehaviour
        // Debug.Log("Item dropped!");
 
         // Unparent the pickup item from the tracking object
+
         pickedupItem.transform.parent = itemArray[currItemIdx].transform;
+        Vector2 pos = pickedupItem.transform.position;
+        pos.y += 1f;
+        pickedupItem.transform.position = new Vector2(pos.x, pos.y);
+
+
+       
         itemArray[currItemIdx].GetComponent<ArrayProps>().item = pickedupItem;
         pickedupItem = null;
         
@@ -93,6 +104,36 @@ public class BestPickUpController : MonoBehaviour
         }
 
         isPickedUp = false;
+
+
+
+        ordered = true;
+        GameObject i1 =  itemArray[0].GetComponent<ArrayProps>().item;
+        if (i1 == null || i1.GetComponent<ItemArrayProps>().size != 1){
+            ordered = false;
+        }
+        GameObject i2 = itemArray[1].GetComponent<ArrayProps>().item;
+        if (i2 == null || i2.GetComponent<ItemArrayProps>().size != 2){
+            ordered = false;
+        }
+        GameObject i3 =  itemArray[2].GetComponent<ArrayProps>().item;
+        if (i3 == null || i3.GetComponent<ItemArrayProps>().size != 3){
+            ordered = false;
+        }
+        GameObject i4 = itemArray[3].GetComponent<ArrayProps>().item;
+        if (i4 == null || i4.GetComponent<ItemArrayProps>().size != 4){
+            ordered = false;
+        }
+        GameObject i5 =  itemArray[4].GetComponent<ArrayProps>().item;
+                if (i5 == null || i5.GetComponent<ItemArrayProps>().size != 5){
+            ordered = false;
+        }
+
+        if (ordered){
+            Debug.Log("Ganaste");
+             generalManager.CompleteLevel();
+        }
+
     }
 }
 

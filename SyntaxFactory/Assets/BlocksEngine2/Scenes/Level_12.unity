@@ -9741,9 +9741,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1279504204}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Stop
+      - m_Target: {fileID: 1162601536}
+        m_TargetAssemblyTypeName: GeneralManager, Assembly-CSharp
+        m_MethodName: ResetScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -49099,8 +49099,6 @@ MonoBehaviour:
   selectionPanelsList:
   - {fileID: 89071716}
   - {fileID: 164210510}
-  - {fileID: 1457543783}
-  - {fileID: 245632076}
   blockToAddTransform: {fileID: 0}
   panelIndex: 5
   addBlock: 0
@@ -70292,7 +70290,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 937905871}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -89971,7 +89969,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 431244457}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

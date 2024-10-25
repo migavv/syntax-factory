@@ -21,7 +21,7 @@ public class GeneralManager : MonoBehaviour
     }
 
     // Method to handle level completion
-    void CompleteLevel()
+    public void CompleteLevel()
     {
       
         // Optionally, load the next scene after a delay
@@ -37,5 +37,14 @@ public class GeneralManager : MonoBehaviour
             winPanel.SetActive(true);
         }
     }
+
+        public void ResetScene()
+    {
+        // Get the current active scene and reload it
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
+
+
 
 }

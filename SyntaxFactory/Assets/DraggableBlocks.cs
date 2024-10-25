@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
-using Microsoft.Unity.VisualStudio.Editor;
-using UnityEngine.UI;
+
 
 public class DraggableBlocks : MonoBehaviour,IBeginDragHandler,IDragHandler, IEndDragHandler
 {

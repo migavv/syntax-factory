@@ -9741,9 +9741,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1279504204}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Stop
+      - m_Target: {fileID: 1162601536}
+        m_TargetAssemblyTypeName: GeneralManager, Assembly-CSharp
+        m_MethodName: ResetScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -70274,7 +70274,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 937905871}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -77841,8 +77841,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1615066717}
   m_HandleRect: {fileID: 1615066716}
   m_Direction: 2
-  m_Value: 1.0000005
-  m_Size: 0.8400085
+  m_Value: 1.000001
+  m_Size: 0.92023027
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -89953,7 +89953,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 431244457}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -111380,17 +111380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalManager: {fileID: 0}
   destination: {fileID: 0}
-  trashDestination: {fileID: 0}
-  itemPrefab: {fileID: 771137610835548551, guid: 6e80cf2d38927d942855520e5cf5340e, type: 3}
-  spawnLocation: {fileID: 0}
-  totalItemsToDeliver: 3
-  spawnDelay: 0.8
   pickupController: {fileID: 975696033}
-  nextSceneName: Level_5
   isCounting: 0
-  isTrash: 0
-  trashSprite: {fileID: 1611237758, guid: 970f0978e65eb7743a4d1a59ec13c58f, type: 3}
-  regularSprite: {fileID: -1437930795, guid: 970f0978e65eb7743a4d1a59ec13c58f, type: 3}
   currentLevel: 0
 --- !u!1 &2091118157
 GameObject:

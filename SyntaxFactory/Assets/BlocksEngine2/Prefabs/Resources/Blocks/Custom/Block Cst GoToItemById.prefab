@@ -1091,3 +1091,4 @@ MonoBehaviour:
   bestPickupController: {fileID: 0}
   animator: {fileID: 0}
   targetObject: {fileID: 0}
+  speed: 7

@@ -1,13 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 // --- most used BE2 namespaces for instruction scripts 
 using MG_BlocksEngine2.Block.Instruction;
-using MG_BlocksEngine2.Block;
-using UnityEngine.UIElements;
-using MG_BlocksEngine2.Environment;
-using System;
+
 
 // --- additional BE2 namespaces used for specific cases as accessing BE2 variables or the event manager
 // using MG_BlocksEngine2.Core;
@@ -19,6 +13,7 @@ public class BE2_Cst_GoToItemById : BE2_InstructionBase, I_BE2_Instruction
     bool done = false;
     public Animator animator;
     public GameObject targetObject;
+    public float speed = 5f;
     public new void Function()
     {
         // --- use Section0Inputs[inputIndex] to get the Block inputs from the first section (index 0).
@@ -43,28 +38,18 @@ public class BE2_Cst_GoToItemById : BE2_InstructionBase, I_BE2_Instruction
         //Debug.Log("Robot: " + pos.x + " " + pos.y);
         if (!done)
         {
-            animator.SetFloat("Speed",1.0f);
-            if (pos.x < des.x)
-            {
-                pos.x = Math.Min(pos.x + 0.01f, des.x);
-            }
-            else if (pos.x > des.x)
-            {
-                pos.x = Math.Max(pos.x - 0.01f, des.x);
-            }
-            if (pos.y < des.y)
-            {
-                pos.y = Math.Min(pos.y + 0.01f, des.y);
-            }
-            else if (pos.y > des.y)
-            {
-                pos.y = Math.Max(pos.y - 0.01f, des.y);
-            }
+            animator.SetFloat("Speed", 1.0f);
+            
+            // Calculate direction and apply movement based on deltaTime
+            Vector2 direction = (des - pos).normalized;
+            Vector2 movement = direction * speed * Time.deltaTime;
 
-            GameObject.Find("Robot").transform.position = new Vector2(pos.x, pos.y);
+            // Move towards the destination, clamping the movement to avoid overshooting
+            pos = Vector2.MoveTowards(pos, des, movement.magnitude);
+            GameObject.Find("Robot").transform.position = pos;
         }
 
-        bool isDestinationReached = pos - des == new Vector2(0, 0);
+        bool isDestinationReached= Vector2.Distance(pos, des) < 0.01f;
 
         if (isDestinationReached)
         {
